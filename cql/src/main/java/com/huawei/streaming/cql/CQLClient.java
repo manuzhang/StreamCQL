@@ -288,13 +288,12 @@ public class CQLClient
         cql="";
         for(String line : splitLines){
         	if(line.trim().charAt(0) == ';'){
-        		LOG.info("跳过注释:" + line.substring(1));
+        		LOG.info("skip comment:" + line.substring(1));
         		continue;
         	}else{
         		cql+= line + "\n";
         	}
         }
-        System.out.println(cql + "编译完成");
         if (driver == null)
         {
             driver = new Driver();

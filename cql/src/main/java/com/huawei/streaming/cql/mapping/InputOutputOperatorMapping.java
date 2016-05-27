@@ -21,15 +21,12 @@ package com.huawei.streaming.cql.mapping;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.huawei.streaming.api.opereators.*;
+import com.huawei.streaming.operator.inputstream.ConsoleInputOp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Maps;
-import com.huawei.streaming.api.opereators.ConsoleOutputOperator;
-import com.huawei.streaming.api.opereators.KafkaInputOperator;
-import com.huawei.streaming.api.opereators.KafkaOutputOperator;
-import com.huawei.streaming.api.opereators.Operator;
-import com.huawei.streaming.api.opereators.RandomGenInputOperator;
 import com.huawei.streaming.api.opereators.serdes.CSVSerDeAPI;
 import com.huawei.streaming.api.opereators.serdes.SerDeAPI;
 import com.huawei.streaming.api.opereators.serdes.SimpleSerDeAPI;
@@ -58,6 +55,7 @@ public class InputOutputOperatorMapping
         /*
          * 输入输出算子
          */
+        API_PLAT_MAPPING.put(ConsoleInputOperator.class.getName(), ConsoleInputOp.class.getName());
         API_PLAT_MAPPING.put(KafkaInputOperator.class.getName(), KafkaSourceOp.class.getName());
         API_PLAT_MAPPING.put(KafkaOutputOperator.class.getName(), KafkaFunctionOp.class.getName());
         API_PLAT_MAPPING.put(RandomGenInputOperator.class.getName(), HeadStreamSourceOp.class.getName());

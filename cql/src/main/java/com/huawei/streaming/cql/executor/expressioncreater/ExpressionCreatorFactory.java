@@ -65,7 +65,7 @@ public class ExpressionCreatorFactory
         try {
             return creator.createInstance(expressDesc, systemConfig);
         }catch(ExecutorException e){
-            LOG.error("解析表达式: " + expressDesc.toString() + "出错");
+            LOG.error("expression : " + expressDesc.toString() + " fault");
             throw e;
         }
     }
