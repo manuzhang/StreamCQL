@@ -62,7 +62,12 @@ public class ExpressionCreatorFactory
         }
         
         ExpressionCreator creator = createExpressionCreatorInstance(creatorClass);
-        return creator.createInstance(expressDesc, systemConfig);
+        try {
+            return creator.createInstance(expressDesc, systemConfig);
+        }catch(ExecutorException e){
+            LOG.error("expression : " + expressDesc.toString() + " fault");
+            throw e;
+        }
     }
     
     private static ExpressionCreator createExpressionCreatorInstance(Class< ? extends ExpressionCreator> creator)

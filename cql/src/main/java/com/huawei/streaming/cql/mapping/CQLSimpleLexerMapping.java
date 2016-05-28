@@ -19,6 +19,7 @@ package com.huawei.streaming.cql.mapping;
 
 import java.util.Map;
 
+import com.huawei.streaming.operator.inputstream.ConsoleInputOp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,6 +53,7 @@ public class CQLSimpleLexerMapping
         MAPPING.put("SimpleSerDe", SimpleSerDe.class.getName());
         MAPPING.put("CsvSerDe", CSVSerDe.class.getName());
 
+        MAPPING.put("consoleInput", ConsoleInputOp.class.getName());
         MAPPING.put("KafkaInput", KafkaSourceOp.class.getName());
         MAPPING.put("KafkaOutput", KafkaFunctionOp.class.getName());
         MAPPING.put("RandomGen", HeadStreamSourceOp.class.getName());

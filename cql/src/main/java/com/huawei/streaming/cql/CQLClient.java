@@ -186,6 +186,11 @@ public class CQLClient
             {
                 continue;
             }
+
+            if(line.trim().startsWith(";")){
+            	//跳过注释
+            	continue;
+            }
             
             if (line.trim().endsWith(";") && !line.trim().endsWith("\\;"))
             {
@@ -278,6 +283,17 @@ public class CQLClient
             System.exit(0);
         }
         
+        String [] splitLines = cql.split("\n");
+        //跳过脚本注释
+        cql="";
+        for(String line : splitLines){
+        	if(line.trim().charAt(0) == ';'){
+        		LOG.info("skip comment:" + line.substring(1));
+        		continue;
+        	}else{
+        		cql+= line + "\n";
+        	}
+        }
         if (driver == null)
         {
             driver = new Driver();

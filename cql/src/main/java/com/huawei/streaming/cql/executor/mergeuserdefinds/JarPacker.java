@@ -23,6 +23,7 @@ import java.io.IOException;
 
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Jar;
+import org.apache.tools.ant.taskdefs.Zip.Zip64ModeAttribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -73,6 +74,7 @@ public class JarPacker
         Project prj = new Project();
         
         Jar jar = new Jar();
+        jar.setZip64Mode(Zip64ModeAttribute.AS_NEEDED);
         jar.setProject(prj);
         jar.setDestFile(new File(distFile));
         jar.setBasedir(sourceDir);
