@@ -34,7 +34,7 @@
 
     <modules>
         <module>streaming</module>
-        <module>adapter/storm</module>
+        <module>adapter</module>
         <module>cql</module>
         <module>cql-binary</module>
     </modules>
